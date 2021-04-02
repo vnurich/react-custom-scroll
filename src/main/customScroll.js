@@ -349,10 +349,11 @@ class CustomScroll extends Component {
     const scrollStyles = this.getScrollStyles()
     const rootStyle = this.getRootStyles()
     const scrollHandleStyle = this.enforceMinHandleHeight(this.getScrollHandleStyle())
+    const { className } = this.props
 
     return (
       <div
-        className={`${styles.customScroll} ${this.state.onDrag ? styles.scrollHandleDragged : ''}`}
+        className={`${styles.customScroll} ${this.state.onDrag ? styles.scrollHandleDragged : ''} ${className}`}
         style={rootStyle}
       >
         <div
@@ -402,6 +403,7 @@ class CustomScroll extends Component {
 try {
   const PropTypes = require('prop-types')
   CustomScroll.propTypes = {
+    className: PropTypes.string,
     children: PropTypes.any,
     allowOuterScroll: PropTypes.bool,
     heightRelativeToParent: PropTypes.string,
